@@ -1,1 +1,17 @@
- 
+<div class="boards-container">
+  <h2>Your Trello Boards</h2>
+  
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <ul *ngIf="boards.length">
+    <li *ngFor="let board of boards">
+      {{ board.name }}
+    </li>
+  </ul>
+
+  <div *ngIf="!boards.length && !error">
+    Loading boards...
+  </div>
+</div> 
