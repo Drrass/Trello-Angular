@@ -27,7 +27,7 @@ export class BoardsComponent implements OnInit {
     const url = `${trelloApiUrl}?key=${trelloApiKey}&token=${trelloAccessToken}`;
 
     try {
-      const response = await axios.get(url);
+      const response = await axios.get<any[]>(url);
       this.boards = response.data;
       console.log(this.boards);
     } catch (error) {
@@ -43,12 +43,12 @@ export class BoardsComponent implements OnInit {
     }
   
     const { trelloApiKey, trelloAccessToken } = environment;
-    const url = `https://api.trello.com/1/boards?key=${trelloApiKey}&token=${trelloAccessToken}`;
+    const url = `https://api.trello.com/1/boards?name=${this.newBoardName}&key=${trelloApiKey}&token=${trelloAccessToken}`;
   
     try {
-      const response = await axios.post(url, {
-        name: this.newBoardName, // Pass the board name
-      });
+      console.log(this.newBoardName);
+      
+      const response = await axios.post(url)
       this.boards.push(response.data); 
       console.log('Board added:', response.data);
       this.newBoardName = ''; 
@@ -57,6 +57,9 @@ export class BoardsComponent implements OnInit {
       console.error('Error adding board:', error);
       this.error = 'Failed to add board. Please try again.';
     }
+  }
+  handleBoardclick(boardId:string): void{
+    console.log('Board ID:', boardId);
   }
 }
 

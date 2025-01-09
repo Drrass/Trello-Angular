@@ -1,39 +1,38 @@
 <div class="boards-container">
-    <h2>Your Trello Boards</h2>
-  
-    <div *ngIf="error" class="error">
-      {{ error }}
-    </div>
+  <h2>Your Trello Boards</h2>
 
-      <!-- Add New Board Section -->
-      <div class="add-board">
-        <h3>Add a New Board</h3>
-      
-        <form (submit)="addBoard()">
-          <input
-            type="text"
-            [(ngModel)]="newBoardName"
-            placeholder="Enter board name"
-            name="boardName"
-            required
-          />
-          <button type="submit">Add Board</button>
-        </form>
-      </div>
-    </div>
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+    <!-- Add New Board Section -->
+    <div class="add-board">
+      <h3>Add a New Board</h3>
     
-
-
-  
-    <!-- Display existing boards -->
-    <ul *ngIf="boards.length">
-      <li *ngFor="let board of boards">
-        {{ board.name }}
-      </li>
-    </ul>
-  
-    <div *ngIf="!boards.length && !error">
-      Loading boards...
+      <form (submit)="addBoard()">
+        <input
+          type="text"
+          [(ngModel)]="newBoardName"
+          placeholder="Enter board name"
+          name="boardName"
+          required
+        />
+        <button type="submit">Add Board</button>
+      </form>
     </div>
+  </div>
   
-  sdsd
+
+
+
+  <!-- Display existing boards -->
+  <ul *ngIf="boards.length">
+    <li *ngFor="let board of boards" (click)="handleBoardclick(board.id)">
+      {{ board.name }}
+    </li>
+  </ul>
+
+  <div *ngIf="!boards.length && !error">
+    Loading boards...
+  </div>
+
