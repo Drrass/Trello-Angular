@@ -1,0 +1,15 @@
+.lists-container {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.lists-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.lists-container p {
+  font-size: 16px;
+  color: #555;
+} 
