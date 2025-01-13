@@ -2,4 +2,16 @@
   <h2>Lists Work</h2>
   <p *ngIf="boardId">Board ID: {{ boardId }}</p>
   <p *ngIf="!boardId">No Board ID available.</p>
+
+  <div class="lists-row">
+    <ul *ngIf="lists.length">
+      <li *ngFor="let list of lists" class="list-item">
+        {{ list.name }}
+
+        <app-cards [listId]="list.id"></app-cards>
+
+      </li>
+    </ul>
+  </div>
 </div>
+

@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpClientModule } from '@angular/common/http'; 
 import { environment } from '../../environments/environment';
+import { CommonModule } from '@angular/common';
+import { CardsComponent } from '../cards/cards.component';
 
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.css'],
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [CommonModule, HttpClientModule, CardsComponent],
 })
 export class ListsComponent implements OnInit {
   boardId: string | null = '';
+  lists: any[] = [];
 
   constructor(private location: Location, private http: HttpClient) {}
 
@@ -26,13 +29,13 @@ export class ListsComponent implements OnInit {
   getLists() {
     const { trelloApiKey, trelloAccessToken } = environment;
     const url = `https://api.trello.com/1/boards/${this.boardId}/lists?key=${trelloApiKey}&token=${trelloAccessToken}`;
-
     this.http.get<any[]>(url).subscribe(
       (response) => {
-        console.log('Lists:', response);
+        this.lists = response;
+        console.log(this.lists);
       },
       (error) => {
-        console.error('Error fetching lists:', error);
+        console.log(error);
       }
     );
   }

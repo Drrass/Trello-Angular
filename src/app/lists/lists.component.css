@@ -12,4 +12,29 @@
 .lists-container p {
   font-size: 16px;
   color: #555;
-} 
+}
+
+.lists-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping if there are too many items */
+  gap: 10px; /* Space between items */
+}
+
+.lists-row ul {
+  display: flex; /* Ensure the ul uses flexbox */
+  padding: 0;
+  list-style-type: none; /* Remove default list styling */
+}
+
+.list-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* Remove vertical offset */
+  min-width: 150px; /* Increase the width of each box */
+  text-align: center;
+}

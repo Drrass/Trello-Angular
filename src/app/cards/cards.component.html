@@ -1,0 +1,14 @@
+<div class="cards-container">
+    <h3>Cards</h3>
+  
+    <p *ngIf="error">{{ error }}</p>
+  
+    <ul *ngIf="cards.length">
+      <li *ngFor="let card of cards" class="card-item">
+        {{ card.name }}
+      </li>
+    </ul>
+  
+    <p *ngIf="!cards.length && !error">No cards available for this list.</p>
+  </div>
+  
