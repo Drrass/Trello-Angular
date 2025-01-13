@@ -1,18 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { BoardsComponent } from './boards/boards.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [HeaderComponent, BoardsComponent, RouterOutlet],
-  standalone: true
+  standalone: true,
+  imports: [HeaderComponent, RouterOutlet]
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'trello';
-
-  ngOnInit() {
-  }
 }

@@ -27,7 +27,7 @@
 
   <!-- Display existing boards -->
   <ul *ngIf="boards.length">
-    <li *ngFor="let board of boards" (click)="handleBoardclick(board.id)">
+    <li *ngFor="let board of boards" (click)="handleBoardClick(board.id)">
       {{ board.name }}
     </li>
   </ul>

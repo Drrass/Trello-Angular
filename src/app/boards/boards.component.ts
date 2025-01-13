@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { environment } from '../../environments/environment';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-boards',
@@ -16,7 +17,7 @@ export class BoardsComponent implements OnInit {
   error: string = '';
   newBoardName: string = ''; 
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.getBoards();
@@ -58,8 +59,9 @@ export class BoardsComponent implements OnInit {
       this.error = 'Failed to add board. Please try again.';
     }
   }
-  handleBoardclick(boardId:string): void{
-    console.log('Board ID:', boardId);
+
+  handleBoardClick(boardId: string): void {
+    this.router.navigate(['/lists'], { state: { boardId } });
   }
 }
 
