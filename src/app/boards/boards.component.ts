@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule, FormsModule],
   standalone: true
 })
+
 export class BoardsComponent implements OnInit {
   boards: any[] = [];
   error: string = '';
@@ -22,7 +23,7 @@ export class BoardsComponent implements OnInit {
   ngOnInit(): void {
     this.getBoards();
   }
-
+  
   async getBoards() {
     const { trelloApiKey, trelloAccessToken, trelloApiUrl } = environment;
     const url = `${trelloApiUrl}?key=${trelloApiKey}&token=${trelloAccessToken}`;

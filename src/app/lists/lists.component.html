@@ -1,3 +1,15 @@
+<div class="add lists">
+  <h3>Add list</h3>
+  <form (submit)="addLists()">
+    <input type="text"
+    [(ngModel)]="newListName"
+    placeholder="Enter list name"
+    name="newListName"
+    required>
+    <button type="submit">Add List</button>
+  </form>
+</div>
+
 <div class="lists-container">
   <h2>Lists Work</h2>
   <p *ngIf="boardId">Board ID: {{ boardId }}</p>
@@ -8,7 +20,8 @@
       <li *ngFor="let list of lists" class="list-item">
         {{ list.name }}
 
-        <app-cards [listId]="list.id"></app-cards>
+       <!--  <app-cards [listId]="list.id"></app-cards> -->
+         <app-cards [listId]="list.id"></app-cards>
 
       </li>
     </ul>

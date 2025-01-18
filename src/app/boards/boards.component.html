@@ -23,15 +23,21 @@
   </div>
   
 
-
-
-  <!-- Display existing boards -->
-  <ul *ngIf="boards.length">
-    <li *ngFor="let board of boards" (click)="handleBoardClick(board.id)">
-      {{ board.name }}
-    </li>
-  </ul>
-
+  <div class="board-list" *ngIf="boards.length">
+    <div 
+      class="board-item" 
+      *ngFor="let board of boards" 
+      [ngStyle]="{
+        'backgroundImage': board.prefs.backgroundImage ? 'url(' + board.prefs.backgroundImage + ')' : null,
+        'backgroundColor': !board.prefs.backgroundImage ? 'lightblue' : null
+      }"
+      (click)="handleBoardClick(board.id)">
+      <div class="board-overlay">
+        {{ board.name }}
+      </div>
+    </div>
+  </div>
+  
   <div *ngIf="!boards.length && !error">
     Loading boards...
   </div>

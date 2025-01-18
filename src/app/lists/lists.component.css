@@ -16,16 +16,16 @@
 
 .lists-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* Allows wrapping if there are too many items */
-  gap: 10px; /* Space between items */
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  padding: 10px; 
 }
 
 .lists-row ul {
-  display: flex; /* Ensure the ul uses flexbox */
+  display: flex; 
   padding: 0;
-  list-style-type: none; /* Remove default list styling */
+  list-style-type: none; 
 }
 
 .list-item {
@@ -34,7 +34,7 @@
   margin-right: 10px;
   padding: 10px 20px;
   border-radius: 5px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* Remove vertical offset */
-  min-width: 150px; /* Increase the width of each box */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); 
+  min-width: 350px; 
   text-align: center;
 }
