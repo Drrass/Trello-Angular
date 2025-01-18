@@ -3,8 +3,20 @@
 
     <ul *ngIf="cards.length">
         <li *ngFor = "let card of cards">
-        {{card.name}}
+            <span (click)="handleCardClick(card.id)">
+                {{card.name}}
+            </span>
+       
         </li>
 
     </ul>
 </div>
+
+
+<div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>Card Details</h2>
+      <p>Card ID: {{ selectedCardId }}</p>
+      <button (click)="closeModal()" class="modal-close-button">Close</button>
+    </div>
+  </div>
